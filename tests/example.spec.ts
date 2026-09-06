@@ -7,9 +7,9 @@ test('has title', async ({ page }) => {
   //await expect(page).toHaveTitle(/Playwright/);
 });
 
-test('get started link', async ({ request }) => {
-  //await page.goto('https://playwright.dev/');
-   //await page.getByRole('link', { name: 'Get started' }).click();
+test('get started link', async ({ request, page }) => {
+  await page.goto('https://playwright.dev/');
+  await page.getByRole('link', { name: 'Get started' }).click();
   await request.get('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="rgba(0,0,0,0.5)" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>');
 
   // Click the get started link. await page.getByRole('link', { name: 'Get started' }).click();
