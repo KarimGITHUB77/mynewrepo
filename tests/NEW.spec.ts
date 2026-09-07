@@ -7,4 +7,5 @@ test.only('example test', async ({ request }) => {
   const response2 = await request.get('https://playwright.dev/docs/intro');
  console.log(await response2.text());
   await expect.soft(response2).toBeOK(); 
+  await page.waitfortimeout(2000);
 });
