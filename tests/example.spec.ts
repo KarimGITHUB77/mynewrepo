@@ -6,7 +6,14 @@ test('has title', async ({ page }) => {
   // Expect a title "to contain" a substring.
   //await expect(page).toHaveTitle(/Playwright/);
 });
-
+test.describe.configure({retries: 2});
+test.describe('API tests', () => {
+  test('API test', async ({ request }) => {
+    const response = await request.get('https://playwright.dev/');
+    console.log(await response.text());
+    await expect.soft(response).toBeOK();
+  });
+});   
 test('get started link', async ({ request, page }) => {
   await page.goto('https://playwright.dev/');
   await page.getByRole('link', { name: 'Get started' }).click();
